@@ -18,7 +18,7 @@
         @include('admin.layout.navbar')
         <div class="page-wrapper">
             <!-- Page header -->
-            @include('admin.layout.header')
+            @yield('header')
             <!-- Page body -->
             <div class="page-body">
                 <div class="container-xl">
@@ -142,6 +142,25 @@
         </div>
     </div>
     @include('admin.components.style_js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    @if (session('success'))
+        <script type="text/javascript">
+            Swal.fire({
+                title: "Berhasil",
+                text: "{{ session('success') }}",
+                icon: "success"
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script type="text/javascript">
+            Swal.fire({
+                title: "Gagal",
+                text: "{{ session('error') }}",
+                icon: "error"
+            });
+        </script>
+    @endif
 </body>
 
 </html>

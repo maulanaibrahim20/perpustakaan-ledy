@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,21 +20,23 @@ Route::get('/', function () {
     return view('landing.layout.home');
 });
 
-Route::get('/test', function () {
-    return view('index');
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/login', [LoginController::class, 'index']);
+    Route::post('/login', [LoginController::class, 'login']);
+
+    Route::get('/register', [RegisterController::class, 'index']);
+    Route::post('/register', [RegisterController::class, 'register']);
 });
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
-
-Route::get('/ngetest', function () {
-    return view('landing.index');
-});
 Route::get('/katalog-buku', function () {
     return view('landing.pages.katalog_buku');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/logout', [LoginController::class, 'logout']);
+
+    Route::group(['middleware' => ['can:admin']], function () {
+        Route::get('/admin/dashboard', [DashboardController::class, 'admin']);
+    });
 });

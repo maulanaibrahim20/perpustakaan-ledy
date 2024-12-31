@@ -26,19 +26,12 @@
                         @auth
                             <a href="#" class="user-account for-buy"><i
                                     class="icon icon-user"></i><span>Account</span></a>
-                            <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
-                                    $)</span></a>
-                            <div class="action-menu">
-
-                                <div class="search-bar">
-                                    <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
-                                        <i class="icon icon-search"></i>
-                                    </a>
-                                    <form role="search" method="get" class="search-box">
-                                        <input class="search-field text search-input" placeholder="Search" type="search">
-                                    </form>
-                                </div>
-                            </div>
+                            @if (Auth::check() && Auth::user()->role === 'admin')
+                                <a href="{{ url('/admin/dashboard') }}" class="user-account for-buy">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            @endif
                             <a href="{{ url('/logout') }}" class="user-account for-buy"><i
                                     class="fa fa-sign-in"></i><span>Logout</span></a>
                         @else

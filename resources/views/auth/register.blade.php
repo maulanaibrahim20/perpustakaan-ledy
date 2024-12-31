@@ -8,21 +8,23 @@
                         class="navbar-brand-image">
                 </a>
             </div>
-            <form class="card card-md" action="./" method="get" autocomplete="off" novalidate>
+            <form class="card card-md" action="{{ url('/register') }}" method="POST" autocomplete="off" novalidate>
+                @csrf
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">Create new account</h2>
                     <div class="mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" placeholder="Enter name">
+                        <input type="text" class="form-control" name="name" placeholder="Enter name">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" placeholder="Enter email">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
                         <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" placeholder="Password" autocomplete="off">
+                            <input type="password" class="form-control" name="password" placeholder="Password"
+                                autocomplete="off">
                             <span class="input-group-text">
                                 <a href="#" class="link-secondary" title="Show password"
                                     data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->

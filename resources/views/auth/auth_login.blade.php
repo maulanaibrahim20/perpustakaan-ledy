@@ -1,12 +1,4 @@
 <!doctype html>
-<!--
-* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
-* @version 1.0.0-beta20
-* @link https://tabler.io
-* Copyright 2018-2023 The Tabler Authors
-* Copyright 2018-2023 codecalm.net Paweł Kuna
-* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
--->
 <html lang="en">
 
 <head>
@@ -47,10 +39,28 @@
             </div>
         </div>
     </div>
-    <!-- Libs JS -->
-    <!-- Tabler Core -->
+
     <script src="{{ url('/admin') }}/js/tabler.min.js?1692870487" defer></script>
     <script src="{{ url('/admin') }}/js/demo.min.js?1692870487" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    @if (session('success'))
+        <script type="text/javascript">
+            Swal.fire({
+                title: "Berhasil",
+                text: "{{ session('success') }}",
+                icon: "success"
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script type="text/javascript">
+            Swal.fire({
+                title: "Gagal",
+                text: "{{ session('error') }}",
+                icon: "error"
+            });
+        </script>
+    @endif
 </body>
 
 </html>
