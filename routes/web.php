@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Master\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/logout', [LoginController::class, 'logout']);
 
     Route::group(['middleware' => ['can:admin']], function () {
+        Route::prefix('admin')->group(function(){
+            Route::prefix('master')->group(function(){
+                Route::get('book',[BookController::class, 'index']);
+            });
+        });
         Route::get('/admin/dashboard', [DashboardController::class, 'admin']);
     });
 });
