@@ -39,6 +39,8 @@
                                     </form>
                                 </div>
                             </div>
+                            <a href="{{ url('/logout') }}" class="user-account for-buy"><i
+                                    class="fa fa-sign-in"></i><span>Logout</span></a>
                         @else
                             <a href="{{ url('/login') }}" class="user-account for-buy"><i
                                     class="fa fa-sign-in"></i><span>Login</span></a>
@@ -64,23 +66,15 @@
                     <nav id="navbar">
                         <div class="main-menu stellarnav">
                             <ul class="menu-list">
-                                <li class="menu-item active"><a href="#home">Home</a></li>
-                                {{-- <li class="menu-item has-sub">
-                                    <a href="#pages" class="nav-link">Pages</a>
-
+                                <li class="menu-item active"><a href="{{ '/' }}">Home</a></li>
+                                <li class="menu-item has-sub">
+                                    <a href="#pages" class="nav-link">Services</a>
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li><a href="{{ '/about' }}">About</a></li>
-                                        <li><a href="index.html">Styles</a></li>
-                                        <li><a href="index.html">Blog</a></li>
-                                        <li><a href="index.html">Post Single</a></li>
-                                        <li><a href="index.html">Our Store</a></li>
-                                        <li><a href="index.html">Product Single</a></li>
-                                        <li><a href="index.html">Contact</a></li>
-                                        <li><a href="index.html">Thank You</a></li>
+                                        <li class="active"><a href="{{ url('/katalog-buku') }}">Katalog Buku</a></li>
+                                        <li class=""><a href="{{ url('/katalog-buku') }}">Reservasi</a></li>
                                     </ul>
 
-                                </li> --}}
+                                </li>
                                 <li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
                                 <li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
                                 <li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>

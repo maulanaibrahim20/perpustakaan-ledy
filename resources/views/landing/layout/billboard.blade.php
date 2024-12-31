@@ -19,10 +19,9 @@
                                 <a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
                                         class="icon icon-ns-arrow-right"></i></a>
                             </div>
-                        </div><!--banner-content-->
+                        </div>
                         <img src="{{ url('/assets') }}/images/main-banner1.jpg" alt="banner" class="banner-image">
-                    </div><!--slider-item-->
-
+                    </div>
                     <div class="slider-item">
                         <div class="banner-content">
                             <h2 class="banner-title">Birds gonna be Happy</h2>
@@ -33,12 +32,10 @@
                                 <a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
                                         class="icon icon-ns-arrow-right"></i></a>
                             </div>
-                        </div><!--banner-content-->
+                        </div>
                         <img src="{{ url('/assets') }}/images/main-banner2.jpg" alt="banner" class="banner-image">
-                    </div><!--slider-item-->
-
-                </div><!--slider-->
-
+                    </div>
+                </div>
                 <button class="next slick-arrow">
                     <i class="icon icon-arrow-right"></i>
                 </button>

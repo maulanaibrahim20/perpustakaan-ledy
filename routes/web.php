@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,16 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landing_page');
+    return view('landing.layout.home');
 });
 
 Route::get('/test', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
 Route::get('/register', function () {
     return view('auth.register');
+});
+
+Route::get('/ngetest', function () {
+    return view('landing.index');
+});
+Route::get('/katalog-buku', function () {
+    return view('landing.pages.katalog_buku');
 });
