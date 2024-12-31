@@ -12,7 +12,7 @@
             <a href="javascript:void(0);" class="btn btn-primary btn-icon text-white me-2" data-bs-toggle="modal"
                 data-bs-target="#tambahBukuModal">
                 <span>
-                    <i class="fe fe-plus"></i>
+                    <i class="fa fa-plus"></i>
                 </span> Tambah Buku
             </a>
         </div>
@@ -28,23 +28,41 @@
                         <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
                             <thead>
                                 <tr>
-                                    <th class="wd-15p border-bottom-0">First name</th>
-                                    <th class="wd-15p border-bottom-0">Last name</th>
-                                    <th class="wd-20p border-bottom-0">Position</th>
-                                    <th class="wd-15p border-bottom-0">Start date</th>
-                                    <th class="wd-10p border-bottom-0">Salary</th>
-                                    <th class="wd-25p border-bottom-0">E-mail</th>
+                                    <th class="wd-15p border-bottom-0">No</th>
+                                    <th class="wd-15p border-bottom-0">Judul</th>
+                                    <th class="wd-20p border-bottom-0">Penerbit</th>
+                                    <th class="wd-15p border-bottom-0">Tanggal Rilis</th>
+                                    <th class="wd-10p border-bottom-0">Harga</th>
+                                    <th class="wd-25p border-bottom-0">Stok</th>
+                                    <th class="wd-25p border-bottom-0 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Bella</td>
-                                    <td>Chloe</td>
-                                    <td>System Developer</td>
-                                    <td>2018/03/12</td>
-                                    <td>$654,765</td>
-                                    <td>b.Chloe@datatables.net</td>
-                                </tr>
+                                @foreach ($book as $books)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $books->title }}</td>
+                                        <td>{{ $books->publisher }}</td>
+                                        <td>{{ $books->published_date }}</td>
+                                        <td>{{ $books->price }}</td>
+                                        <td>{{ $books->stock }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ url('/operator/user/pangan/' . encrypt($books->id) . '/edit') }}"
+                                                class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ url('/operator/user/pangan/' . encrypt($books->id)) }}"
+                                                class="btn btn-primary">
+                                                <i class="ti ti-eye"></i></a>
+                                            <form id="deleteForm{{ $books->id }}"
+                                                action="{{ url('/operator/user/pangan/' . $books->id) }}"
+                                                style="display: inline;" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="button" class="btn btn-danger deleteBtn"
+                                                    data-id="{{ $books->id }}"><i class="ti ti-trash"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -52,7 +70,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="modal fade" id="tambahBukuModal">
         <div class="modal-dialog" role="document">
@@ -78,6 +95,10 @@
                             <input type="number" class="form-control" id="tahunTerbit" placeholder="Masukkan tahun terbit"
                                 required>
                         </div>
+                        <div class="mb-3">
+                            <label for="tahunTerbit" class="form-label">Gambar</label>
+                            <input type="file" class="form-control" placeholder="Masukkan tahun terbit" required>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -86,6 +107,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

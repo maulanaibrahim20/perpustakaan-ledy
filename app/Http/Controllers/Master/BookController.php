@@ -10,6 +10,8 @@ class BookController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.master.book.index');
+        $data['book'] = Book::all();
+
+        return view('admin.pages.master.book.index', $data);
     }
 }
