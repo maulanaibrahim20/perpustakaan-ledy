@@ -1,17 +1,9 @@
-<!-- CSS files -->
-<link href="{{ url('/admin') }}/css/tabler.min.css?1692870487" rel="stylesheet" />
-<link href="{{ url('/admin') }}/css/tabler-flags.min.css?1692870487" rel="stylesheet" />
-<link href="{{ url('/admin') }}/css/tabler-payments.min.css?1692870487" rel="stylesheet" />
-<link href="{{ url('/admin') }}/css/tabler-vendors.min.css?1692870487" rel="stylesheet" />
-<link href="{{ url('/admin') }}/css/demo.min.css?1692870487" rel="stylesheet" />
-<style>
-    @import url('https://rsms.me/inter/inter.css');
+   <!-- BOOTSTRAP CSS -->
+   <link id="style" href="{{ url('/admin') }}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-    :root {
-        --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-    }
+   <!-- STYLE CSS -->
+   <link href="{{ url('/admin') }}/css/style.css" rel="stylesheet" />
+   <link href="{{ url('/admin') }}/css/plugins.css" rel="stylesheet" />
 
-    body {
-        font-feature-settings: "cv03", "cv04", "cv11";
-    }
-</style>
+   <!--- FONT-ICONS CSS -->
+   <link href="{{ url('/admin') }}/css/icons.css" rel="stylesheet" />

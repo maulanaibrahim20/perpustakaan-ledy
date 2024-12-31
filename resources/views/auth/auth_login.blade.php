@@ -1,47 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Sign in with cover - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
-    </title>
-    <!-- CSS files -->
-    <link href="{{ url('/admin') }}/css/tabler.min.css?1692870487" rel="stylesheet" />
-    <link href="{{ url('/admin') }}/css/tabler-flags.min.css?1692870487" rel="stylesheet" />
-    <link href="{{ url('/admin') }}/css/tabler-payments.min.css?1692870487" rel="stylesheet" />
-    <link href="{{ url('/admin') }}/css/tabler-vendors.min.css?1692870487" rel="stylesheet" />
-    <link href="{{ url('/admin') }}/css/demo.min.css?1692870487" rel="stylesheet" />
-    <style>
-        @import url('https://rsms.me/inter/inter.css');
 
-        :root {
-            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-        }
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Zanex – Bootstrap  Admin & Dashboard Template">
+    <meta name="author" content="Spruko Technologies Private Limited">
+    <meta name="keywords"
+        content="admin, dashboard, dashboard ui, admin dashboard template, admin panel dashboard, admin panel html, admin panel html template, admin panel template, admin ui templates, administrative templates, best admin dashboard, best admin templates, bootstrap 4 admin template, bootstrap admin dashboard, bootstrap admin panel, html css admin templates, html5 admin template, premium bootstrap templates, responsive admin template, template admin bootstrap 4, themeforest html">
 
-        body {
-            font-feature-settings: "cv03", "cv04", "cv11";
-        }
-    </style>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('/admin') }}/images/brand/favicon.ico" />
+
+    <!-- TITLE -->
+    <title>Zanex – Bootstrap Admin & Dashboard Template</title>
+
+    @include('admin.components.style_css')
+
 </head>
 
-<body class=" d-flex flex-column bg-white">
-    <script src="{{ url('/admin') }}/js/demo-theme.min.js?1692870487"></script>
-    <div class="row g-0 flex-fill">
-        <div class="col-12 col-lg-6 col-xl-4 border-top-wide border-primary d-flex flex-column justify-content-center">
-            @yield('content')
+<body class="login-img">
+
+    <!-- BACKGROUND-IMAGE -->
+    <div>
+
+        <!-- GLOABAL LOADER -->
+        <div id="global-loader">
+            <img src="{{ url('/admin') }}/images/loader.svg" class="loader-img" alt="Loader">
         </div>
-        <div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
-            <!-- Photo -->
-            <div class="bg-cover h-100 min-vh-100"
-                style="background-image: url({{ url('/admin') }}/static/photos/finances-us-dollars-and-bitcoins-currency-money-2.jpg)">
+        <!-- /GLOABAL LOADER -->
+
+        <!-- PAGE -->
+        <div class="page login-page">
+            <div>
+                <!-- CONTAINER OPEN -->
+                <div class="col col-login mx-auto mt-7">
+                    <div class="text-center">
+                        <img src="{{ url('/admin') }}/images/brand/logo.png" class="header-brand-img" alt="">
+                    </div>
+                </div>
+                <div class="container-login100">
+                    @yield('content')
+                </div>
+                <!-- CONTAINER CLOSED -->
             </div>
         </div>
-    </div>
+        <!-- End PAGE -->
 
-    <script src="{{ url('/admin') }}/js/tabler.min.js?1692870487" defer></script>
-    <script src="{{ url('/admin') }}/js/demo.min.js?1692870487" defer></script>
+    </div>
+    <!-- BACKGROUND-IMAGE CLOSED -->
+
+    @include('admin.components.style_js')
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     @if (session('success'))
         <script type="text/javascript">
@@ -61,6 +74,7 @@
             });
         </script>
     @endif
+
 </body>
 
 </html>

@@ -1,59 +1,58 @@
 @extends('auth.auth_login')
 @section('content')
-    <div class="page page-center">
-        <div class="container container-tight py-4">
-            <div class="text-center mb-4">
-                <a href="." class="navbar-brand navbar-brand-autodark">
-                    <img src="{{ url('/admin') }}/static/logo.svg" width="110" height="32" alt="Tabler"
-                        class="navbar-brand-image">
-                </a>
+    <div class="container-login100">
+        <div class="wrap-login100 p-0">
+            <div class="card-body">
+                <form class="login100-form validate-form" action="{{ url('/register') }}" method="POST">
+                    @csrf
+                    <span class="login100-form-title">
+                        Registration
+                    </span>
+                    <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="name" placeholder="User name">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="mdi mdi-account" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="zmdi zmdi-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn btn-primary">
+                            Register
+                        </button>
+                    </div>
+                    <div class="text-center pt-3">
+                        <p class="text-dark mb-0">Already have account?<a href="{{ url('/login') }}"
+                                class="text-primary ms-1">Sign
+                                In</a></p>
+                    </div>
+                </form>
             </div>
-            <form class="card card-md" action="{{ url('/register') }}" method="POST" autocomplete="off" novalidate>
-                @csrf
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Create new account</h2>
-                    <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="email" placeholder="Enter email">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" name="password" placeholder="Password"
-                                autocomplete="off">
-                            <span class="input-group-text">
-                                <a href="#" class="link-secondary" title="Show password"
-                                    data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path
-                                            d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                                    </svg>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-check">
-                            <input type="checkbox" class="form-check-input" />
-                            <span class="form-check-label">Agree the <a href="./terms-of-service.html" tabindex="-1">terms
-                                    and policy</a>.</span>
-                        </label>
-                    </div>
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100">Create new account</button>
-                    </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center my-3">
+                    <a href="" class="social-login  text-center me-4">
+                        <i class="fa fa-google"></i>
+                    </a>
+                    <a href="" class="social-login  text-center me-4">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="social-login  text-center">
+                        <i class="fa fa-twitter"></i>
+                    </a>
                 </div>
-            </form>
-            <div class="text-center text-secondary mt-3">
-                Already have account? <a href="{{ url('/login') }}" tabindex="-1">Sign in</a>
             </div>
         </div>
     </div>
