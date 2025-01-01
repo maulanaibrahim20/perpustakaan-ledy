@@ -28,8 +28,9 @@
                             class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
                 </li>
                 <li>
-                    <a class="side-menu__item" href="widgets.html"><i class="side-menu__icon fe fe-grid"></i><span
-                            class="side-menu__label">Widgets</span></a>
+                    <a class="side-menu__item {{ Request::segment(2) == 'book' ? 'active' : '' }}"
+                        href="{{ url('/admin/book') }}"><i class="side-menu__icon fe fe-book"></i><span
+                            class="side-menu__label">Book</span></a>
                 </li>
                 <li class="slide {{ Request::segment(2) == 'master' ? 'is-expanded' : '' }}">
                     <a class="side-menu__item {{ Request::segment(2) == 'master' ? 'active is-expanded' : '' }}"
@@ -37,9 +38,11 @@
                             class="side-menu__icon fe fe-database"></i><span class="side-menu__label">Master</span><i
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu open">
-                        <li class="side-menu-label1"><a href="javascript:void(0)">Components</a></li>
-                        <li><a href="{{ url('/admin/master/book') }}"
-                                class="slide-item {{ Request::segment(3) == 'book' ? 'active' : '' }}"> Book</a></li>
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Master</a></li>
+                        <li><a href="{{ url('/admin/master/category') }}"
+                                class="slide-item {{ Request::segment(3) == 'category' ? 'active' : '' }}">
+                                Category</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

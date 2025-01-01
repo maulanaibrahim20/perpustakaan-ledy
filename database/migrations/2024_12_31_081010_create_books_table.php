@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string('author');
             $table->string('publisher')->nullable();
             $table->date('published_date')->nullable();
-            $table->string('isbn',20)->unique()->nullable();
-            $table->decimal('price',10,2);
+            $table->string('isbn', 20)->unique()->nullable();
+            $table->decimal('price', 10, 2);
             $table->unsignedBigInteger('stock')->default(1);
             $table->longText('description');
             $table->string('cover_image');
+            $table->enum('status', ['active', 'non-active'])->default('active');
             $table->timestamps();
-
         });
     }
 

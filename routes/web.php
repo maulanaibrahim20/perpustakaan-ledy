@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Master\BookController;
+use App\Http\Controllers\Master\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,8 +40,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['can:admin']], function () {
         Route::prefix('admin')->group(function () {
+            Route::get('book', [BookController::class, 'index']);
+            Route::post('book', [BookController::class, 'store']);
             Route::prefix('master')->group(function () {
-                Route::get('book', [BookController::class, 'index']);
+                Route::get('category', [CategoryController::class, 'index']);
+                Route::post('category', [CategoryController::class, 'store']);
+                Route::put('category/{id}', [CategoryController::class, 'update']);
+                Route::delete('category/{id}', [CategoryController::class, 'destroy']);
             });
         });
         Route::get('/admin/dashboard', [DashboardController::class, 'admin']);

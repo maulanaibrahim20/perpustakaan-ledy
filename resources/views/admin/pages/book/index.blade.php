@@ -79,25 +79,65 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="tambahBukuForm">
+                    <form id="tambahBukuForm" action="{{ url('/admin/book') }}" method="POSt"
+                        enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="judulBuku" class="form-label">Judul Buku</label>
-                            <input type="text" class="form-control" id="judulBuku" placeholder="Masukkan judul buku"
-                                required>
+                            <input type="text" class="form-control" id="judulBuku" name="title"
+                                placeholder="Masukkan judul buku" required>
                         </div>
                         <div class="mb-3">
                             <label for="pengarangBuku" class="form-label">Pengarang</label>
-                            <input type="text" class="form-control" id="pengarangBuku"
+                            <input type="text" class="form-control" id="pengarangBuku" name="author"
                                 placeholder="Masukkan nama pengarang" required>
                         </div>
                         <div class="mb-3">
-                            <label for="tahunTerbit" class="form-label">Tahun Terbit</label>
-                            <input type="number" class="form-control" id="tahunTerbit" placeholder="Masukkan tahun terbit"
-                                required>
+                            <label for="penerbit" class="form-label">Penerbit</label>
+                            <input type="text" class="form-control" id="penerbit" name="publisher"
+                                placeholder="Masukkan nama penerbit">
                         </div>
                         <div class="mb-3">
-                            <label for="tahunTerbit" class="form-label">Gambar</label>
-                            <input type="file" class="form-control" placeholder="Masukkan tahun terbit" required>
+                            <label for="tanggalTerbit" class="form-label">Tanggal Terbit</label>
+                            <input type="date" class="form-control" id="tanggalTerbit" name="published_date">
+                        </div>
+                        <div class="mb-3">
+                            <label for="isbn" class="form-label">ISBN</label>
+                            <input type="text" class="form-control" id="isbn" name="isbn"
+                                placeholder="Masukkan ISBN">
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="harga" name="price" step="0.01"
+                                placeholder="Masukkan harga buku" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="number" class="form-control" id="stok" name="stock" min="1"
+                                placeholder="Masukkan jumlah stok" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="description" rows="3"
+                                placeholder="Masukkan deskripsi buku"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="kategori" class="form-label">Kategori</label>
+                            <select multiple class="form-select" id="kategori" name="categories[]" required>
+                            </select>
+                            <small class="form-text text-muted">Tekan Ctrl untuk memilih lebih dari satu kategori.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status">
+                                <option value="active">Aktif</option>
+                                <option value="non-active">Non-Aktif</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="coverImage" class="form-label">Gambar Cover</label>
+                            <input type="file" class="form-control" id="coverImage" name="cover_image"
+                                accept="image/*" required>
                         </div>
                     </form>
                 </div>

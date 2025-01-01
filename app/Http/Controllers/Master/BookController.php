@@ -12,6 +12,11 @@ class BookController extends Controller
     {
         $data['book'] = Book::all();
 
-        return view('admin.pages.master.book.index', $data);
+        return view('admin.pages.book.index', $data);
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
     }
 }
