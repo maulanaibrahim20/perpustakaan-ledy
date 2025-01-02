@@ -29,11 +29,13 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">No</th>
+                                    <th class="wd-15p border-bottom-0">Kategori</th>
                                     <th class="wd-15p border-bottom-0">Judul</th>
                                     <th class="wd-20p border-bottom-0">Penerbit</th>
                                     <th class="wd-15p border-bottom-0">Tanggal Rilis</th>
                                     <th class="wd-10p border-bottom-0">Harga</th>
                                     <th class="wd-25p border-bottom-0">Stok</th>
+                                    <th class="wd-25p border-bottom-0">Status</th>
                                     <th class="wd-25p border-bottom-0 text-center">Action</th>
                                 </tr>
                             </thead>
@@ -41,11 +43,19 @@
                                 @foreach ($book as $books)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $books->category->name }}</td>
                                         <td>{{ $books->title }}</td>
                                         <td>{{ $books->publisher }}</td>
                                         <td>{{ $books->published_date }}</td>
                                         <td>{{ $books->price }}</td>
                                         <td>{{ $books->stock }}</td>
+                                        <td>
+                                            @if ($books->status == 'active')
+                                                <span class="badge bg-success  me-1 mb-1 mt-1">Active</span>
+                                            @else
+                                                <span class="badge bg-danger  me-1 mb-1 mt-1">Non-Active</span>
+                                            @endif
+                                        </td>
                                         <td class="text-center">
                                             <a href="{{ url('/operator/user/pangan/' . encrypt($books->id) . '/edit') }}"
                                                 class="btn btn-warning"><i class="fa fa-edit"></i></a>
@@ -123,8 +133,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
-                            <select class="form-control select2 form-select" style="width:100%"
+                            <select class="form-control select2 form-select" name="category_id" style="width:100%"
                                 data-placeholder="Choose one">
+                                <option value="">--Pilih--</option>
                                 @foreach ($category as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing.layout.home');
-});
+Route::get('/', [AppController::class, 'index']);
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', [LoginController::class, 'index']);
@@ -35,6 +34,12 @@ Route::get('/katalog-buku', function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('cart/add/{id}', [AppController::class, 'addToCart']);
+
+    Route::get('/cart', [AppController::class, 'cart']);
+
+    Route::post('/transaction', [AppController::class, 'transaction']);
 
     Route::get('/logout', [LoginController::class, 'logout']);
 

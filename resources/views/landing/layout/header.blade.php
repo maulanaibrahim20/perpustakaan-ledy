@@ -26,8 +26,8 @@
                         @auth
                             <a href="#" class="user-account for-buy"><i
                                     class="icon icon-user"></i><span>Account</span></a>
-                            <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
-                                    $)</span></a>
+                            <a href="{{ url('/cart') }}" class="cart for-buy"><i
+                                    class="icon icon-clipboard"></i><span>Cart</span></a>
                             @if (Auth::check() && Auth::user()->role === 'admin')
                                 <a href="{{ url('/admin/dashboard') }}" class="user-account for-buy">
                                     <i class="fa fa-dashboard"></i>

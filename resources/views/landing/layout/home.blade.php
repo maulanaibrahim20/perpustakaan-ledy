@@ -14,9 +14,5 @@
 
     @include('landing.layout.special-offer')
 
-    @include('landing.layout.subscribe')
-
     @include('landing.layout.latest-blog')
-
-    @include('landing.layout.download-app')
 @endsection

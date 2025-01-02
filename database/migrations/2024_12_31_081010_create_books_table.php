@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('cover_image');
             $table->enum('status', ['active', 'non-active'])->default('active');
+            $table->unsignedBigInteger('category_id')->nullable(); // Bisa diisi null jika kategori opsional
             $table->timestamps();
         });
     }
