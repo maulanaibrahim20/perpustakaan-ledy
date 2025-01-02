@@ -123,9 +123,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
-                            <select multiple class="form-select" id="kategori" name="categories[]" required>
+                            <select class="form-control select2 form-select" style="width:100%"
+                                data-placeholder="Choose one">
+                                @foreach ($category as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
                             </select>
-                            <small class="form-text text-muted">Tekan Ctrl untuk memilih lebih dari satu kategori.</small>
                         </div>
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>

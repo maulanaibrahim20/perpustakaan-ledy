@@ -73,21 +73,5 @@
 <script src="{{ url('/admin') }}/plugins/datatable/dataTables.responsive.min.js"></script>
 <script src="{{ url('/admin') }}/plugins/datatable/responsive.bootstrap5.min.js"></script>
 <script src="{{ url('/admin') }}/js/table-data.js"></script>
-
-<!-- DATEPICKER JS -->
-<script src="{{ url('/admin') }}/plugins/date-picker/date-picker.js"></script>
-<script src="{{ url('/admin') }}/plugins/date-picker/jquery-ui.js"></script>
-<script src="{{ url('/admin') }}/plugins/input-mask/jquery.maskedinput.js"></script>
-
-<!-- INTERNAL Bootstrap-Datepicker js-->
-<script src="{{ url('/admin') }}/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
-
-<!-- INTERNAL intlTelInput js-->
-<script src="{{ url('/admin') }}/plugins/intl-tel-input-master/intlTelInput.js"></script>
-<script src="{{ url('/admin') }}/plugins/intl-tel-input-master/country-select.js"></script>
-<script src="{{ url('/admin') }}/plugins/intl-tel-input-master/utils.js"></script>
-
-
-<!-- FORMELEMENTS JS -->
-<script src="{{ url('/admin') }}/js/formelementadvnced.js"></script>
-<script src="{{ url('/admin') }}/js/form-elements.js"></script>
+<!-- SELECT2 JS -->
+<script src="{{ url('/admin') }}/plugins/select2/select2.full.min.js"></script>
