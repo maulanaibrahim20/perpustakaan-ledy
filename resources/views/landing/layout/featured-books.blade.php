@@ -29,7 +29,7 @@
                                     <figcaption>
                                         <h3>{{ $data->title }}</h3>
                                         <span>{{ $data->author }}</span>
-                                        <div class="item-price">{{ $data->price }}</div>
+                                        <div class="item-price">{{ Number::currency($data->price, 'IDR', 'id') }}</div>
                                     </figcaption>
                                 </div>
                             </div>
